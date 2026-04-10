@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.6%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.6%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 217.2 91.2% 59.8%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 217.2 91.2% 59.8%;
+    --accent-foreground: 355.7 100% 97.3%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217.2 91.2% 59.8%;
+    --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 0 0% 95%;
+    --primary: 213.3 93.9% 67.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 213.3 93.9% 67.8%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 213.3 93.9% 67.8%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition-property: background-color, color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  *:focus-visible {
+    outline-width: 2px;
+    outline-offset: 2px;
+    outline-color: hsl(var(--ring));
+  }
+
+  /* Native select options inherit the select's background/color in dark mode */
+  .dark select option {
+    background-color: hsl(220 13% 13%); /* gray-900 equivalent */
+    color: hsl(210 40% 96%);            /* gray-100 equivalent */
+  }
+}
+
+/* ── Intro.js Tour Customization ───────────────────────── */
+.finance-tour-tooltip.introjs-tooltip {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  max-width: 340px;
+  font-family: inherit;
+  padding: 0;
+  overflow: hidden;
+}
+
+.dark .finance-tour-tooltip.introjs-tooltip {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+
+.finance-tour-tooltip .introjs-tooltip-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0f172a;
+  padding: 16px 20px 8px;
+}
+
+.dark .finance-tour-tooltip .introjs-tooltip-title {
+  color: #f1f5f9;
+}
+
+.finance-tour-tooltip .introjs-tooltiptext {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.6;
+  padding: 0 20px 16px;
+}
+
+.dark .finance-tour-tooltip .introjs-tooltiptext {
+  color: #94a3b8;
+}
+
+.finance-tour-tooltip .introjs-tooltipbuttons {
+  border-top: 1px solid #e2e8f0;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dark .finance-tour-tooltip .introjs-tooltipbuttons {
+  border-top-color: #334155;
+}
+
+.finance-tour-tooltip .introjs-button {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 6px 14px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+  text-shadow: none;
+}
+
+.finance-tour-tooltip .introjs-nextbutton,
+.finance-tour-tooltip .introjs-donebutton {
+  background-color: #2563eb;
+  color: #fff;
+  margin-left: auto;
+}
+
+.finance-tour-tooltip .introjs-nextbutton:hover,
+.finance-tour-tooltip .introjs-donebutton:hover {
+  background-color: #1d4ed8;
+  color: #fff;
+}
+
+.finance-tour-tooltip .introjs-prevbutton {
+  background-color: transparent;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.finance-tour-tooltip .introjs-prevbutton:hover {
+  background-color: #f8fafc;
+  color: #334155;
+}
+
+.dark .finance-tour-tooltip .introjs-prevbutton {
+  color: #94a3b8;
+  border-color: #334155;
+}
+
+.dark .finance-tour-tooltip .introjs-prevbutton:hover {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.finance-tour-tooltip .introjs-skipbutton {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.finance-tour-tooltip .introjs-skipbutton:hover {
+  color: #475569;
+  background-color: #f1f5f9;
+}
+
+.finance-tour-tooltip .introjs-bullets {
+  padding: 0 20px 4px;
+}
+
+.finance-tour-tooltip .introjs-bullets ul li a {
+  background-color: #cbd5e1;
+}
+
+.finance-tour-tooltip .introjs-bullets ul li a.active {
+  background-color: #2563eb;
+  width: 16px;
+}
+
+.finance-tour-tooltip .introjs-progress {
+  margin: 0 20px 0;
+  height: 3px;
+  background-color: #e2e8f0;
+  border-radius: 2px;
+}
+
+.finance-tour-tooltip .introjs-progressbar {
+  background-color: #2563eb;
+  border-radius: 2px;
+}
+
+.finance-tour-tooltip .introjs-arrow {
+  border: none;
+}
+
+.finance-tour-tooltip .introjs-arrow.top,
+.finance-tour-tooltip .introjs-arrow.top-right,
+.finance-tour-tooltip .introjs-arrow.top-middle {
+  border-bottom-color: #fff;
+}
+
+.dark .finance-tour-tooltip .introjs-arrow.top,
+.dark .finance-tour-tooltip .introjs-arrow.top-right,
+.dark .finance-tour-tooltip .introjs-arrow.top-middle {
+  border-bottom-color: #1e293b;
+}
+
+.finance-tour-tooltip .introjs-arrow.bottom,
+.finance-tour-tooltip .introjs-arrow.bottom-right,
+.finance-tour-tooltip .introjs-arrow.bottom-middle {
+  border-top-color: #fff;
+}
+
+.dark .finance-tour-tooltip .introjs-arrow.bottom,
+.dark .finance-tour-tooltip .introjs-arrow.bottom-right,
+.dark .finance-tour-tooltip .introjs-arrow.bottom-middle {
+  border-top-color: #1e293b;
+}
+
+.introjs-helperLayer {
+  border-radius: 8px;
+  box-shadow: rgba(33, 33, 33, 0.5) 0 0 1px 2px, rgba(33, 33, 33, 0.3) 0 0 0 5000px !important;
+}
