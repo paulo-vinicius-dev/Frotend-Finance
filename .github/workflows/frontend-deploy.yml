@@ -109,6 +109,7 @@ jobs:
 
             echo "Preserving old container for rollback..."
             docker rename finance-frontend finance-frontend-prev 2>/dev/null || true
+            docker stop finance-frontend-prev 2>/dev/null || true
 
             echo "Starting new container..."
             docker run -d \
