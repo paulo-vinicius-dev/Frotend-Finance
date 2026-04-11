@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build: .
+    container_name: finance-frontend
+    ports:
+      - "80:80"
+    networks:
+      - finance-net
+    restart: unless-stopped
+
+networks:
+  finance-net:
+    name: finance-net
+    external: true
