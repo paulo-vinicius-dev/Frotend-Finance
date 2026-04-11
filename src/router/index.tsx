@@ -14,6 +14,7 @@ import InsightsPage from '@/features/insights/InsightsPage'
 import AlertsPage from '@/features/alerts/AlertsPage'
 import RecurringPage from '@/features/recurring/RecurringPage'
 import AdminUsersPage from '@/features/admin/AdminUsersPage'
+import ProfilePage from '@/features/profile/ProfilePage'
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ export const router = createBrowserRouter([
           { path: 'insights', element: <InsightsPage /> },
           { path: 'alerts', element: <AlertsPage /> },
           { path: 'recurring', element: <RecurringPage /> },
+          { path: 'profile', element: <ProfilePage /> },
           // Admin-only routes
           {
             element: <AdminRoute />,

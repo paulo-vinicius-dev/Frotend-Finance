@@ -10,6 +10,7 @@ import {
   BellIcon,
   ArrowPathIcon,
   UsersIcon,
+  UserCircleIcon,
 } from '@heroicons/react/24/outline'
 import { cn } from '@/lib/cn'
 import { useCurrentUser } from '@/store/authStore'
@@ -95,6 +96,25 @@ export default function Sidebar({ isCollapsed }: SidebarProps) {
           </>
         )}
       </nav>
+
+      {/* Profile footer */}
+      <div className={cn('border-t border-gray-200 dark:border-gray-800 py-3', isCollapsed ? 'px-0' : 'px-3')}>
+        <NavLink
+          to="/profile"
+          title="Meu Perfil"
+          className={({ isActive }) =>
+            cn(
+              'flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-colors gap-3',
+              isActive
+                ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300'
+                : 'text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'
+            )
+          }
+        >
+          <UserCircleIcon className="h-5 w-5 shrink-0" />
+          <span className="truncate">{user?.fullName ?? 'Meu Perfil'}</span>
+        </NavLink>
+      </div>
     </aside>
   )
 }
