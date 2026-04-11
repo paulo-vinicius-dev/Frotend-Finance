@@ -2,8 +2,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
-import axios from 'axios'
 import { registerSchema, type RegisterFormValues } from './authSchemas'
+import { apiClient } from '@/lib/axios'
 import { Button, Input, FormField } from '@/components/ui'
 
 export default function RegisterPage() {
@@ -19,7 +19,7 @@ export default function RegisterPage() {
 
   async function onSubmit(values: RegisterFormValues) {
     try {
-      await axios.post('/api/v1/auth/register', values)
+      await apiClient.post('/api/v1/auth/register', values)
       toast.success('Conta criada com sucesso! Faça login para continuar.')
       navigate('/login')
     } catch {
